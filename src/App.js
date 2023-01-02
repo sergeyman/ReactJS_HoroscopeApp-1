@@ -63,6 +63,53 @@ export default function App() {
 4) Hacky way to get back to main page (Restart) without r.router
 
 
+Deploying a React App* to GitHub Pages
+* created using create-react-app
+https://github.com/gitname/react-gh-pages
+1. Create an empty repository on GitHub
+2. Create a React app
+  $ npx create-react-app my-app --template typescript
+  $ cd my-app
+3. Install the gh-pages npm package
+  $ npm install gh-pages --save-dev
+4. 4. Add a homepage property to the package.json file
+  {
+    "name": "my-app",
+    "version": "0.1.0",
+  + "homepage": "https://gitname.github.io/react-gh-pages",
+  + "homepage": "https://sergeyman.github.io/react-gh-pages",
+    "private": true,
+    ...
+5. Add deployment scripts to the package.json file
+  "scripts": {
+  +   "predeploy": "npm run build",
+  +   "deploy": "gh-pages -d build",
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      ...
+6. Add a "remote" that points to the GitHub repository
+    $ git remote add origin https://github.com/{username}/{repo-name}.git
+    $ git remote add origin https://github.com/gitname/react-gh-pages.git
+    $ git remote add origin https://github.com/sergeyman/react-gh-pages.git 
+    $ git remote add origin https://github.com/sergeyman/ReactJS_HoroscopeApp-1.git
+7. Push the React app to the GitHub repository
+    $ npm run deploy
+8. Configure GitHub Pages
+At this point, the GitHub repository contains a branch named gh-pages, 
+which contains the files that make up the distributable version of the React app. 
+1. Navigate to the GitHub Pages settings page
+   i. In your web browser, navigate to the GitHub repository
+  ii. Above the code browser, click on the tab labeled "Settings"
+ iii. In the sidebar, in the "Code and automation" section, click on "Pages"
+2. Configure the "Build and deployment" settings like this:
+   i. Source: Deploy from a branch
+  ii. Branch:
+    +Branch: gh-pages     // !!!
+    +Folder: / (root)
+    +Click on the "Save" button
+9. (Optional) Store the React app's source code on GitHub
+
+
 */
 
 // */
